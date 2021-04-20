@@ -1,0 +1,7 @@
+mysql> CREATE TABLE expression
+    -> (gene VARCHAR(30), expr_value VARCHAR(30));
+
+ubuntu@ip - : curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/expression.tab > expression.tab
+ubuntu@ip - : mysqlimport --local -d --ignore-lines=0 -u awkologi -p compbiol expression.tab
+
+mysql> delete from expression where expr_value is NULL;
